@@ -8,6 +8,7 @@ const sendOtp = async (toEmail, otp) => {
     html: `<p>Your OTP is: <strong>${otp}</strong><br>This is valid for 1 minutes.</p>`
   };
   await transporter.sendMail(mailOptions);
+  console.log(`OTP sent to ${toEmail}`);
 };
 
 const sendOtpExpired = async (toEmail) => {
@@ -18,6 +19,7 @@ const sendOtpExpired = async (toEmail) => {
     html: `<p>Your OTP has expired. Please request a new one.</p>`
   };
   await transporter.sendMail(mailOptions);
+  console.log(`OTP expired notification sent to ${toEmail}`);
 };
 
 const sendOtpVerified = async (toEmail) => {
@@ -28,6 +30,7 @@ const sendOtpVerified = async (toEmail) => {
     html: `<p>Your OTP has been successfully verified.</p>`
   };
   await transporter.sendMail(mailOptions);
+  console.log(`OTP verification success notification sent to ${toEmail}`);
 };
 
 module.exports = {
