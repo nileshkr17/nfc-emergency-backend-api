@@ -27,6 +27,7 @@ router.post('/register', async (req, res) => {
     });
 
     await newUser.save();
+    console.log(`New user registered: ${uniqueId}`);
     res.status(201).json({ uniqueId });
   } catch (error) {
     console.error('Error registering user:', error);
@@ -84,7 +85,7 @@ router.patch('/update', async (req, res) => {
     user.isOtpVerified = false; // Reset OTP verification flag after update
 
     await user.save();
-
+    console.log(`User profile updated: ${uniqueId}`);
     res.json({ message: 'Profile updated successfully' });
   } catch (error) {
     console.error('Error updating profile:', error);
